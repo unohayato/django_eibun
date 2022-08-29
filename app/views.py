@@ -26,3 +26,10 @@ class Create(CreateView):
 class Update(UpdateView):
     model = Post
     fields = ["title", "body"]
+
+
+class Delete(DeleteView):
+    model = Post
+    
+    # 削除したあとに移動する先（トップページ）
+    success_url = "/"
