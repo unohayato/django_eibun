@@ -1,7 +1,10 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("app.urls")),
+    path('', views.Index.as_view(), name="index"),
+    
+    # <pk>にPostのIDを渡すと表示される。
+    path('detail/<pk>/', views.Detail.as_view(), name="detail"),
 ]
